@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obaid Khan - Mathematics Teacher</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-zN6/PLu7XUKq6lHRn4wqv3Xq+fXH9dH4c8MTDABa/8eG5ocnbAGlq6LMWjV5QmVzLmg6fsdZk3UQFSu6b5xgXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<!-- Floating WhatsApp CTA -->
+<div id="demoFormModal" style="display:none; 
+                               position:fixed; 
+                               top:0; left:0; 
+                               width:100%; height:100%; 
+                               background:rgba(0,0,0,0.6); 
+                               justify-content:center; 
+                               align-items:center; 
+                               z-index:9999;">
+    <div
+        style="background:white; padding:2rem; border-radius:12px; max-width:400px; width:90%; box-shadow:0 8px 20px rgba(0,0,0,0.3); position:relative;">
+
+        <!-- Close Button -->
+        <button onclick="closeDemoForm()"
+            style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.2rem; cursor:pointer;">&times;</button>
+
+        <h3 style="margin-bottom:1rem; text-align:center;">Book Your Free Demo</h3>
+
+        <form id="demoForm" onsubmit="submitToWhatsApp(event)" style="display:flex; flex-direction:column; gap:0.8rem;">
+            <input type="text" id="name" placeholder="Full Name" required class="form-control py-2 px-3"
+                style="border-radius:8px; border:1px solid #ccc;">
+            <input type="text" id="class" placeholder="Class / Grade" required class="form-control py-2 px-3"
+                style="border-radius:8px; border:1px solid #ccc;">
+            <textarea id="message"
+                placeholder="Tell me what you’re struggling with. I’ll prepare your free session around it!"
+                class="form-control py-2 px-3" style="border-radius:8px; border:1px solid #ccc;"></textarea>
+            <button type="submit" class="btn btn-success w-100 py-2 rounded-pill">Submit</button>
+        </form>
+    </div>
+</div>
+<a href="https://wa.me/916392761479?text=Hello%20Obaid%20Sir%2C%20I%E2%80%99m%20interested%20in%20booking%20a%20Free%20Demo%20session%20for%20my%20child."
+    class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp" style="text-decoration: none;">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#home" style="outline: none;">
+                <h1 class="d-inline-flex align-items-center"
+                    style="font-size: 1.7rem; font-weight: 600; color: #1e293b;">
+                    <i class="fas fa-square-root-alt me-2" style="font-size: 2.2rem; color: #0f766e;"></i>
+                    Obaid Khan <span class="d-none d-md-block"
+                        style="font-weight: 400; font-size: 1rem; margin-left: 0.5rem; color: #667eea;">| Your Maths
+                        Mentor</span>
+                </h1>
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#subjects">Subjects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container-fluid hero">
+            <div class="row align-items-center min-vh-100 g-0">
+                <!-- left hero content -->
+
+                <div class="col-12 col-lg-6 p-4">
+                    <h1>Empowering Minds <br>with Mathematics</h1>
+                    <p class="hero-p">
+                        With over 6 years of experience, I help students simplify complex mathematical concepts
+                        and gain confidence in problem-solving. <br class="d-none d-md-block d-xxl-none">Experience in
+                        making complex <br class="d-none d-xxl-block">mathematical concepts <br
+                            class="d-none d-md-block d-xxl-none">accessible and engaging for students of all levels. My
+                        approach is patient, clear, and tailored to each student’s pace,
+                        ensuring every concept is mastered before moving forward.
+                    </p>
+                    <div class="d-flex hero-btn-cont gap-3 mt-3 flex-column flex-md-row"
+                        style="position: relative; z-index: 10;">
+                        <a href="mailto:career@mathswithobaid.com" class="btn btn-primary py-2 px-5" style="border: 1px solid rgba(255,255,255,0.6); 
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+          transition: all 0.3s ease;">
+                            Contact
+                        </a>
+
+
+                        <button
+                            class="btn btn-success d-inline-flex align-items-center py-2 px-4 rounded-pill shadow-sm"
+                            style="font-size: 0.95rem;" onclick="openDemoForm()">
+                            <i class="fab fa-whatsapp me-2"></i> 🎓 Free Demo
+                        </button>
+
+                    </div>
+
+
+
+
+                    <!-- Free Demo Ribbon -->
+                </div>
+
+
+                <!-- right testimonial carousel -->
+                <div class="col-12 col-lg-6 p-4 position-relative">
+                    <div class="owl-carousel owl-theme">
+                        <!-- Testimonial 1 -->
+                        <div class="item">
+                            <div class="card testimonial shadow-sm border-0 p-3">
+                                <div class="card-body">
+                                    <div>
+                                        <h5 class="card-title">Amazing tutor!</h5>
+                                        <p class="card-text">
+                                            I am extremely grateful to have Obaid Sir as my Maths tutor from the past
+                                            few months.
+                                            I saw a huge improvement in my Maths skill. Thank you Sir.
+                                        </p>
+                                    </div>
+                                    <span class="text-muted">– Itika Agarwal </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Testimonial 2 -->
+                        <div class="item">
+                            <div class="card testimonial shadow-sm border-0 p-3">
+                                <div class="card-body">
+                                    <div>
+                                        <h5 class="card-title">Great Support</h5>
+                                        <p class="card-text">
+                                            Obaid sir has truly changed the way I look at the subject. His patience,
+                                            constant encouragement, and clear way of explaining made even the toughest
+                                            topics feel simple. I wouldn’t have come this far without his support.
+                                        </p>
+                                    </div>
+                                    <span class="text-muted">– Nivedha Ganesh
+                                        Class 10th</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-divider"></div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="about-image text-center">
+                        <div class="profile-placeholder">
+                            <img src="./about-image.png" class="img-fluid" width="500" height="500" alt="img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <h3 class="mb-4">Obaid Khan</h3>
+
+                        <p class="text-muted mb-4">
+                            I am a passionate mathematics educator with over <strong>6+ years of teaching
+                                experience</strong>, guiding students from middle school to college level. My journey in
+                            education began with a deep fascination for the beauty and logic of mathematics, and I
+                            strive to share this passion with every student I teach.
+                        </p>
+
+                        <p class="text-muted mb-4">
+                            My teaching philosophy focuses on making mathematics <strong>accessible, engaging, and
+                                relevant</strong>. I believe that every student has the potential to excel when concepts
+                            are presented clearly and connected to real-world applications.
+                        </p>
+
+                        <div class="credentials">
+                            <h5 class="mb-3">Credentials & Achievements</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-graduation-cap text-primary me-2"></i>Master's in Mathematics
+                                    Education</li>
+                                <li><i class="fas fa-certificate text-primary me-2"></i>Certified Mathematics Teacher
+                                </li>
+                                <li><i class="fas fa-clock text-primary me-2"></i>6+ Years Teaching Experience</li>
+                                <li><i class="fas fa-award text-primary me-2"></i>Excellence in Teaching Award 2022</li>
+                                <li>
+                                    <i class="fas fa-university text-primary me-2"></i>Aligarh Muslim University
+
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Subjects & Classes</h2>
+                    <div class="section-divider"></div>
+                    <p class="text-muted">Comprehensive mathematics instruction for all levels</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <h4>Algebra</h4>
+                        <p class="text-muted">Fundamental algebraic concepts, equations, and problem-solving strategies
+                            for middle and high school students.</p>
+                        <div class="grade-levels">
+                            <span class="badge bg-primary">Grade 7-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-shapes"></i>
+                        </div>
+                        <h4>Geometry</h4>
+                        <p class="text-muted">Spatial reasoning, geometric proofs, and the study of shapes, sizes, and
+                            properties of figures.</p>
+                        <div class="grade-levels">
+                            <span class="badge bg-primary">Grade 9-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Calculus</h4>
+                        <p class="text-muted">Advanced mathematical concepts including limits, derivatives, integrals,
+                            and their applications.</p>
+                        <div class="grade-levels">
+                            <span class="badge bg-primary">Grade 11-12</span>
+                            <span class="badge bg-secondary">College</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>Statistics</h4>
+                        <p class="text-muted">Data analysis, probability, statistical inference, and real-world
+                            applications of statistics.</p>
+                        <div class="grade-levels">
+                            <span class="badge bg-primary">Grade 10-12</span>
+                            <span class="badge bg-secondary">College</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h4>Pre-Calculus</h4>
+                        <p class="text-muted">Preparation for calculus with advanced algebra, trigonometry, and
+                            mathematical functions.</p>
+                        <div class="grade-levels">
+                            <span class="badge bg-primary">Grade 11-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Math Enrichment</h4>
+                        <p class="text-muted">Advanced problem-solving, mathematical competitions, and enrichment
+                            activities for gifted students.</p>
+                        <div class="grade-levels">
+                            <span class="badge bg-primary">All Levels</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!-- Testimonials Section -->
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">What Students & Parents Say</h2>
+                    <div class="section-divider"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-carousel owl-theme">
+                        <!-- Testimonial 1.1 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>I wanted to reach out and thank you Mr.Obaid sir for the wonderful progress of my
+                                        daughter studying in grade 7.
+                                        She is genuinely interested in the subject now.Before starting with you math was
+                                        a struggle but your session have completely turned her attitude .Now she
+                                        approaches math with confidence & a positive mindset.
+                                        I m so grateful for your patience and for making lessons engaging & effective. I
+                                        highly recommend him to any parent looking for a skilled tutor who can build a
+                                        student's confidence.
+                                        <br>
+                                        It's a huge relief for me to see her doing good in maths.
+                                        Thank you again for all your hard work & for making such a positive impact
+                                    </p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Parent of grade 7 student</h6>
+                                        <small class="text-muted">7th Grade, UAE</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 1 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>Obaid sir teaches really well and I am very grateful to have him as a teacher for
+                                        me. If a student doesn't understand sir will explain it again till the students
+                                        get it. His efforts are really great and his teaching skills are also great.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Vedang Thorat</h6>
+                                        <small class="text-muted">8th Grade, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>I am extremely grateful to have Obaid Sir as my Maths tutor from the past few
+                                        months. I saw a huge improvement in my Maths skill. Thank you Sir.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Itika Agarwal</h6>
+                                        <small class="text-muted">8th Standard, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>I am very grateful to Obaid sir for his dedicated and effective teaching in
+                                        Mathematics. He explains even the most difficult concepts in a simple and clear
+                                        manner, which makes learning much easier and more enjoyable. His patient
+                                        attitude and willingness to repeat topics until we understand them truly show
+                                        his commitment to our success. Thanks to his guidance, I have improved a lot in
+                                        Maths and gained confidence in solving complex problems. I really appreciate his
+                                        efforts and the supportive learning environment he creates.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Hriday Pawar</h6>
+                                        <small class="text-muted">8th Grade, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>I have been studying with Obaid sir since 1 year and I like the way Obaid sir
+                                        teaches. He is one of the best teachers I have ever seen. When I came to his
+                                        classes I was able to do Maths more easily. Thanks!</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Aris Jain</h6>
+                                        <small class="text-muted">8th Grade, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>It has been a very productive 3 months since I started math sessions with Obaid
+                                        Sir. Obaid Sir teaches math really well and is very patient with students. I
+                                        found his classes a great way to learn and accelerate my math learning.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Ibrahim</h6>
+                                        <small class="text-muted">IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 6 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>I highly recommend this math tuition! Before joining, I struggled with
+                                        understanding concepts and scoring well in exams. But ever since I started
+                                        learning from Mr. Obaid Khan, my marks have improved a lot. His teaching style
+                                        is very clear, patient, and effective. He explains everything in a way that's
+                                        easy to understand and always makes sure I grasp the topic before moving on. His
+                                        dedication and passion for teaching really make a difference. I'm very happy
+                                        with the progress I've made.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Jawad</h6>
+                                        <small class="text-muted">IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 7 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>Assalamualaikum. I have improved my calculation and have developed speed in
+                                        solving questions. I have been able to solve sums that are considered long and
+                                        hard easily thanks to Obaid sir for making maths easy.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Mustafa Ahmed</h6>
+                                        <small class="text-muted">Class 8, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 8 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>I’ve been greatly benefited from your teaching approach. The clear explanations
+                                        and step-by-step guidance have made complex topics much easier to understand. My
+                                        recent exam went really well, and I was able to solve questions with much more
+                                        ease.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Maeda Shakil</h6>
+                                        <small class="text-muted">Class 8, Bhagalpur, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 9 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>Obaid sir has truly changed the way I look at the subject. His patience, constant
+                                        encouragement, and clear way of explaining made even the toughest topics feel
+                                        simple. I wouldn’t have come this far without his support.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Nivedha Ganesh</h6>
+                                        <small class="text-muted">Class 10th, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 10 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>I have been learning math from him for the past few days, and I’m really happy
+                                        with the way he teaches. He explains every concept clearly and makes sure I
+                                        understand everything properly. He’s patient while clearing doubts and always
+                                        encourages me to keep improving.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Sadia Shadan</h6>
+                                        <small class="text-muted">Class 10th, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 11 -->
+                        <div class="item">
+                            <div class="testimonial-card p-3 shadow-sm">
+                                <div class="testimonial-content">
+                                    <p>Respected Obaid sir - I just wanted to take a moment to sincerely thank you for
+                                        the incredible way you teach mathematics. Your ability to explain even the most
+                                        complex concepts in a simple and clear manner has made a huge difference in how
+                                        I understand the subject. You make learning math not just easier, but genuinely
+                                        enjoyable. Your passion for teaching and the effort you put into making sure
+                                        every student understands is truly admirable.</p>
+                                </div>
+                                <div class="testimonial-author mt-3">
+                                    <div class="author-info">
+                                        <h6>Maryam</h6>
+                                        <small class="text-muted">IX, Shimoga, IND</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Learning Resources</h2>
+                    <div class="section-divider"></div>
+                    <p class="text-muted">Helpful tools and materials to support your mathematical journey</p>
+                </div>
+            </div>
+
+            <!-- Calculator Tool -->
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="calculator-container">
+                        <h4 class="text-center mb-4">Interactive Calculator</h4>
+                        <div class="calculator">
+                            <div class="calculator-display">
+                                <input type="text" id="calculator-display" class="form-control" readonly>
+                            </div>
+                            <div class="calculator-buttons">
+                                <button class="calc-btn" onclick="clearDisplay()">C</button>
+                                <button class="calc-btn" onclick="deleteLast()">⌫</button>
+                                <button class="calc-btn" onclick="appendToDisplay('(')">(</button>
+                                <button class="calc-btn" onclick="appendToDisplay(')')">)</button>
+
+                                <button class="calc-btn" onclick="appendToDisplay('7')">7</button>
+                                <button class="calc-btn" onclick="appendToDisplay('8')">8</button>
+                                <button class="calc-btn" onclick="appendToDisplay('9')">9</button>
+                                <button class="calc-btn" onclick="appendToDisplay('/')">/</button>
+
+                                <button class="calc-btn" onclick="appendToDisplay('4')">4</button>
+                                <button class="calc-btn" onclick="appendToDisplay('5')">5</button>
+                                <button class="calc-btn" onclick="appendToDisplay('6')">6</button>
+                                <button class="calc-btn" onclick="appendToDisplay('*')">×</button>
+
+                                <button class="calc-btn" onclick="appendToDisplay('1')">1</button>
+                                <button class="calc-btn" onclick="appendToDisplay('2')">2</button>
+                                <button class="calc-btn" onclick="appendToDisplay('3')">3</button>
+                                <button class="calc-btn" onclick="appendToDisplay('-')">-</button>
+
+                                <button class="calc-btn" onclick="appendToDisplay('0')">0</button>
+                                <button class="calc-btn" onclick="appendToDisplay('.')">.</button>
+                                <button class="calc-btn equals" onclick="calculate()">=</button>
+                                <button class="calc-btn" onclick="appendToDisplay('+')">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Links -->
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="resource-card">
+                        <h5><i class="fas fa-download text-primary me-2"></i>Downloadable Worksheets</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="resource-link">Algebra Practice Problems</a></li>
+                            <li><a href="#" class="resource-link">Geometry Proofs Worksheet</a></li>
+                            <li><a href="#" class="resource-link">Calculus Review Packet</a></li>
+                            <li><a href="#" class="resource-link">Statistics Practice Tests</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="resource-card">
+                        <h5><i class="fas fa-external-link-alt text-primary me-2"></i>Helpful Websites</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="https://www.khanacademy.org" target="_blank" class="resource-link">Khan
+                                    Academy</a></li>
+                            <li><a href="https://www.desmos.com" target="_blank" class="resource-link">Desmos Graphing
+                                    Calculator</a></li>
+                            <li><a href="https://www.wolframalpha.com" target="_blank" class="resource-link">Wolfram
+                                    Alpha</a></li>
+                            <li><a href="https://www.geogebra.org" target="_blank" class="resource-link">GeoGebra</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Gallery</h2>
+                    <div class="section-divider"></div>
+                    <p class="text-muted">Glimpses into the learning environment and mathematical activities</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <p>Interactive Classroom Sessions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-users"></i>
+                            <p>Group Problem Solving</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-trophy"></i>
+                            <p>Math Competition Winners</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-laptop"></i>
+                            <p>Technology-Enhanced Learning</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-lightbulb"></i>
+                            <p>Creative Problem Solving</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-graduation-cap"></i>
+                            <p>Student Success Stories</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <div class="section-divider"></div>
+                    <p class="text-muted">Ready to start your mathematical journey? Let's connect!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-info text-center">
+                        <h5 class="mb-4">Contact Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope text-primary mb-3"></i>
+                                    <div>
+                                        <strong>Email:</strong><br>
+                                        <a href="mailto:obaid.khan@email.com">contact@mathswithobaid.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone text-primary mb-3"></i>
+                                    <div>
+                                        <strong>Phone:</strong><br>
+                                        <a href="tel:+91639276-1479">+91 (639) 276-1479</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt text-primary mb-3"></i>
+                                    <div>
+                                        <strong>Location:</strong><br>
+                                        <br>
+                                        MH, IND
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="contact-item">
+                                    <i class="fas fa-clock text-primary mb-3"></i>
+                                    <div>
+                                        <strong>Office Hours:</strong><br>
+                                        Monday - Friday: 8:00 AM - 4:00 PM<br>
+                                        Saturday: 9:00 AM - 12:00 PM
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <h5 class="mb-3">Obaid Khan</h5>
+                    <p>Empowering minds with mathematics through innovative teaching and dedicated mentorship.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 col-12 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="#about" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#subjects" class="text-white text-decoration-none">Subjects</a></li>
+                        <li><a href="#resources" class="text-white text-decoration-none">Resources</a></li>
+                        <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <p class="mb-1"><i class="fas fa-envelope me-2"></i> <a href="mailto:contact@mathswithobaid.com"
+                            class="text-white text-decoration-none">contact@mathswithobaid.com</a></p>
+                    <p class="mb-1"><i class="fas fa-phone me-2"></i> <a href="tel:+916392761479"
+                            class="text-white text-decoration-none">+91 (639) 276-1479</a></p>
+                    <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i> MH, INDIA</p>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <h5 class="mb-3">Subscribe</h5>
+                    <p>Get updates, tips, and resources directly in your inbox.</p>
+                    <form
+                        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSc5L62vzDbuotP-fdttC33didXasiPTtew8Y2d9O6Zbx33GYQ/formResponse"
+                        method="POST" target="_blank" class="d-flex flex-wrap gap-2">
+                        <input type="email" name="entry.1409938516" class="form-control flex-grow-1"
+                            placeholder="Enter your email to get updates!" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+
+                </div>
+            </div>
+
+            <hr class="bg-secondary">
+
+            <!-- Bottom row -->
+            <div class="row mt-3">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2024 Obaid Khan. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Made with ❤️ in Mumbai, India </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Load jQuery first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ST2VHTK6JE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ST2VHTK6JE');
+    </script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
