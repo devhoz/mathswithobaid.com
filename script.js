@@ -322,6 +322,42 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+$(document).ready(function(){
+    $(".screenshot-carousel").owlCarousel({
+        loop: true,               // Keeps it looping infinitely
+        margin: 15,               // Space between items
+        items: 1,                 // Show one image at a time
+        
+        // Autoplay settings
+        autoplay: true,           // Turns on scheduled sliding
+        autoplayTimeout: 3000,    // Time between slides (3 seconds)
+        autoplayHoverPause: true, // Pauses ONLY on hover, resumes on mouseleave
+        
+        // Navigation settings
+        nav: true,                // Enables the Next/Prev arrows
+        dots: true,               // Keeps the dots at the bottom (set to false if you want to hide them)
+        navText: [
+            "<i class='fas fa-chevron-left'></i>", 
+            "<i class='fas fa-chevron-right'></i>"
+        ] // Uses the FontAwesome icons you already loaded in your <head>
+    });
+
+    // Initialize the other text testimonial carousel if you haven't already
+    $("#testimonials .owl-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        nav: false, // Probably don't need arrows for the text ones
+        responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            992: { items: 3 }
+        }
+    });
+});
+
 // ===== ACCESSIBILITY FEATURES =====
 
 // Add focus indicators for better accessibility

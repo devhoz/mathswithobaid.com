@@ -746,3 +746,47 @@ html {
         color: black !important;
     }
 } 
+/* Position the navigation container over the images */
+.screenshot-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none; /* Allows clicking through the empty space */
+    z-index: 10;
+}
+
+/* Style the actual arrow buttons */
+.screenshot-carousel .owl-nav button.owl-prev,
+.screenshot-carousel .owl-nav button.owl-next {
+    pointer-events: auto; /* Makes the buttons clickable again */
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 2px solid white !important;
+    color: #0f766e !important; /* Matches your navbar brand color */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin: 0 10px; /* Spacing from the edges */
+}
+
+/* Add a nice hover effect */
+.screenshot-carousel .owl-nav button.owl-prev:hover,
+.screenshot-carousel .owl-nav button.owl-next:hover {
+    background: #0f766e !important;
+    color: white !important;
+    transform: scale(1.1);
+}
+
+/* Optional: Hide the default disabled state if you aren't looping */
+.screenshot-carousel .owl-nav button.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
