@@ -41,10 +41,8 @@
             max-height: 550px;
             width: auto !important;
             border-radius: 20px;
-
             /* Premium white glass border instead of clunky black bezel */
             border: 4px solid rgba(255, 255, 255, 0.4);
-
             /* Smooth shadow */
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
@@ -54,6 +52,62 @@
             .screenshot-wrapper img {
                 max-height: 400px;
             }
+        }
+
+        /* Pulse Animation for Limited Seats */
+        @keyframes pulse-text {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pulse-danger {
+            display: inline-block;
+            animation: pulse-text 2s infinite;
+        }
+
+        /* Position the navigation container over the images */
+        .screenshot-carousel .owl-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none; /* Allows clicking through the empty space */
+            z-index: 10;
+        }
+
+        /* Style the actual arrow buttons */
+        .screenshot-carousel .owl-nav button.owl-prev,
+        .screenshot-carousel .owl-nav button.owl-next {
+            pointer-events: auto; /* Makes the buttons clickable again */
+            background: rgba(255, 255, 255, 0.85) !important;
+            border: 2px solid white !important;
+            color: #0f766e !important; /* Matches your navbar brand color */
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            margin: 0 -15px; /* Pushes the arrows slightly outside the image */
+        }
+
+        /* Add a nice hover effect */
+        .screenshot-carousel .owl-nav button.owl-prev:hover,
+        .screenshot-carousel .owl-nav button.owl-next:hover {
+            background: #0f766e !important;
+            color: white !important;
+            transform: scale(1.1);
+        }
+
+        /* Hide the default disabled state if you aren't looping */
+        .screenshot-carousel .owl-nav button.disabled {
+            opacity: 0.5;
+            cursor: default;
         }
     </style>
 </head>
@@ -89,9 +143,9 @@
             </form>
         </div>
     </div>
+    
     <a href="https://wa.me/916392761479?text=Hello%20Obaid%20Sir%2C%20I%E2%80%99m%20interested%20in%20booking%20a%20Free%20Demo%20session%20for%20my%20child."
         class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
-
         <svg viewBox="0 0 448 512" width="30" height="30" fill="white">
             <path
                 d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
@@ -108,7 +162,6 @@
                         style="font-weight: 400; font-size: 1rem; margin-left: 0.5rem; color: #667eea;">| Your Maths
                         Mentor</span>
                 </h1>
-
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -143,22 +196,30 @@
 
     <section id="home" class="hero-section">
         <div class="container-fluid hero">
-            <div class="row align-items-center min-vh-100 g-0">
-                <div class="col-12 col-lg-6 p-4">
+            <div class="row min-vh-100 g-0 pt-5 mt-5 align-items-start">
+                
+                <div class="col-12 col-lg-6 p-4 mt-lg-5">
                     <h1>Empowering Minds <br>with Mathematics</h1>
-                    <p class="hero-p">
-                        With over 6 years of experience, I help students simplify complex mathematical concepts
-                        and gain confidence in problem-solving. <br class="d-none d-md-block d-xxl-none">Experience in
-                        making complex <br class="d-none d-xxl-block">mathematical concepts <br
-                            class="d-none d-md-block d-xxl-none">accessible and engaging for students of all levels. My
-                        approach is patient, clear, and tailored to each student’s pace,
-                        ensuring every concept is mastered before moving forward.
-                    </p>
-                    <div class="d-flex hero-btn-cont gap-3 mt-3 flex-column flex-md-row"
+                    
+                   <p class="hero-p mb-4">
+    As an M.Sc. and B.Ed. qualified educator with over 6 years of experience, I help students across India, the Gulf, and Canada transform their math struggles into confidence. My Math Excellence Program is built on personalized attention, featuring exclusive micro-batches for guaranteed individual focus and a comprehensive 5-day weekly schedule that includes regular testing. By combining continuous data-driven progress tracking with our rigorous Annual Exam Test Series, I ensure every child masters the fundamentals and is fully exam-ready—typically boosting academic scores by 20-25%.
+</p>
+
+                    <div class="admission-banner mb-4 d-inline-flex align-items-center px-4 py-2 rounded-pill shadow-sm" style="background-color: #f8fafc; border: 2px solid #0f766e;">
+                        <span class="fw-bold" style="color: #0f766e; font-size: 1.05rem;">
+                            <i class="fas fa-door-open me-2"></i>Admission Open 2026-27
+                        </span>
+                        <span class="mx-3 text-muted">|</span>
+                        <span class="text-danger fw-bold pulse-danger" style="font-size: 1.05rem;">
+                            <i class="fas fa-hourglass-half me-1"></i>Limited Seats
+                        </span>
+                    </div>
+
+                    <div class="d-flex hero-btn-cont gap-3 flex-column flex-md-row"
                         style="position: relative; z-index: 10;">
                         <a href="mailto:contact@mathswithobaid.com" class="btn btn-primary py-2 px-5" style="border: 1px solid rgba(255,255,255,0.6); 
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-          transition: all 0.3s ease;">
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+                            transition: all 0.3s ease;">
                             Contact
                         </a>
 
@@ -167,10 +228,8 @@
                             style="font-size: 0.95rem;" onclick="openDemoForm()">
                             <i class="fab fa-whatsapp me-2"></i> 🎓 Free Demo
                         </button>
-
                     </div>
                 </div>
-
 
                 <div class="col-12 col-lg-6 p-4 position-relative">
                     <div class="owl-carousel owl-theme screenshot-carousel">
@@ -194,42 +253,42 @@
                         </div>
                         <div class="item">
                             <div class="screenshot-wrapper">
-                                <img src="testimonials/t4.jpeg" alt="Student WhatsApp Testimonial 3">
+                                <img src="testimonials/t4.jpeg" alt="Student WhatsApp Testimonial 4">
                             </div>
                         </div>
                         <div class="item">
                             <div class="screenshot-wrapper">
-                                <img src="testimonials/t5.jpeg" alt="Student WhatsApp Testimonial 3">
+                                <img src="testimonials/t5.jpeg" alt="Student WhatsApp Testimonial 5">
                             </div>
                         </div>
                         <div class="item">
                             <div class="screenshot-wrapper">
-                                <img src="testimonials/t6.jpeg" alt="Student WhatsApp Testimonial 3">
+                                <img src="testimonials/t6.jpeg" alt="Student WhatsApp Testimonial 6">
                             </div>
                         </div>
                         <div class="item">
                             <div class="screenshot-wrapper">
-                                <img src="testimonials/t7.jpeg" alt="Student WhatsApp Testimonial 3">
+                                <img src="testimonials/t7.jpeg" alt="Student WhatsApp Testimonial 7">
                             </div>
                         </div>
                         <div class="item">
                             <div class="screenshot-wrapper">
-                                <img src="testimonials/t8.jpeg" alt="Student WhatsApp Testimonial 3">
+                                <img src="testimonials/t8.jpeg" alt="Student WhatsApp Testimonial 8">
                             </div>
                         </div>
                         <div class="item">
                             <div class="screenshot-wrapper">
-                                <img src="testimonials/t9.jpeg" alt="Student WhatsApp Testimonial 3">
+                                <img src="testimonials/t9.jpeg" alt="Student WhatsApp Testimonial 9">
                             </div>
                         </div>
                         <div class="item">
                             <div class="screenshot-wrapper">
-                                <img src="testimonials/t10.jpeg" alt="Student WhatsApp Testimonial 3">
+                                <img src="testimonials/t10.jpeg" alt="Student WhatsApp Testimonial 10">
                             </div>
                         </div>
                         <div class="item">
                             <div class="screenshot-wrapper">
-                                <img src="testimonials/t11.jpeg" alt="Student WhatsApp Testimonial 3">
+                                <img src="testimonials/t11.jpeg" alt="Student WhatsApp Testimonial 11">
                             </div>
                         </div>
                         
@@ -247,11 +306,11 @@
                     <div class="section-divider"></div>
                 </div>
             </div>
-            <div class="row align-items-center">
+            <div class="row align-items-center">    
                 <div class="col-lg-6 mb-4">
                     <div class="about-image text-center">
                         <div class="profile-placeholder">
-                            <img src="./about-image.png" class="img-fluid" width="500" height="500"
+                            <img src="./about-image.jpeg" class="img-fluid" width="500" height="500"
                                 alt="Obaid Khan Mathematics Tutor">
                         </div>
                     </div>
@@ -749,9 +808,7 @@
         </div>
     </footer>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
